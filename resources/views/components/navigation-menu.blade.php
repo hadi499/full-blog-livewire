@@ -10,14 +10,14 @@
                 @auth
                 <x-nav-link :active="request()->routeIs('home')" href="{{route('home')}}">Home</x-nav-link>
                 <x-nav-link :active="request()->routeIs('about')" href="{{route('about')}}">About</x-nav-link>
-                <x-nav-link :active="request()->routeIs('posts.*')" href="{{route('posts.index')}}">Posts
-                </x-nav-link>
-                    
-                @endauth
+                <x-nav-link :active="request()->routeIs('posts.*')" href="{{route('posts.index')}}">Posts</x-nav-link>
+                <x-nav-link :active="request()->routeIs('create-post')" href="{{route('create-post')}}">Add Post</x-nav-link>
+
+     
                 
             </ul>
             <ul class="navbar-nav ms-auto me-3">
-                @auth
+            
 
                 <li>
                     <form action="{{route('logout')}}" method="POST">
@@ -31,7 +31,6 @@
                 </li>
                 @endauth
             </ul>
-           
           
 
         </div>

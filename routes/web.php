@@ -5,6 +5,7 @@ use App\Livewire\About;
 
 use App\Livewire\Users\Login;
 use App\Http\Controllers\LogoutController;
+use App\Livewire\Posts\Category;
 use App\Livewire\Users\Register;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Posts\Show as PostShow;
@@ -18,9 +19,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/', Home::class)->name('home');
     Route::get('/about', About::class)->name('about');
     Route::get('/posts', PostIndex::class)->name('posts.index');   
-    Route::get('/posts/create', PostCreate::class)->name('posts.create');
+    Route::get('/posts/create', PostCreate::class)->name('create-post');
     Route::get('/posts/{slug}', PostShow::class)->name('posts.show'); 
     Route::get('/posts/{slug}/edit', PostUpdate::class)->name('posts.edit');
+    Route::get('posts/categories/{slug}', Category::class)->name('posts.category');
     // Route::get('/posts/{slug}/delete', PostDestroy::class)->name('posts.destroy');
     Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 });
