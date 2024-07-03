@@ -1,7 +1,13 @@
-<div class="row justify-content-center">        
+<div class="row justify-content-start">  
+    <div class="mb-5">
+        <input type="text" class="form-control w-25 px-3" placeholder="Search...." wire:model.live='keyword'>
+       
+      </div>
+
+    
         
         @foreach ($posts as $post)
-        <div class="col-sm-12 col-md-8 col-lg-6 col-xl-4">
+        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
             <div class="card mb-4">
                 <a class="text-decoration-none text-dark" href="{{route('posts.show', $post->slug)}}">
     
@@ -33,5 +39,11 @@
         </div>
 
         @endforeach
+        <div class="row justify-content-center mt-3">
+            <div class="col-md-6">
+                {{$posts->links()}}
+
+            </div>
+        </div>
  
 </div>
