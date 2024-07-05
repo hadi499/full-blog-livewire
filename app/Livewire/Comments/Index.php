@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Comments;
 
+use App\Models\Like;
 use App\Models\Post;
 use App\Models\Comment;
 use Livewire\Component;
@@ -69,6 +70,22 @@ class Index extends Component
         $this->comment_id = NULL;
         // return redirect()->route('posts.show', $this->post->slug);
      
+    }
+
+    public function like($id)
+    {
+        $data = [
+            'comment_id' => $id,
+            'user_id' => Auth::user()->id
+        ];
+
+        $like = Like::where($data);
+        if ($like->count() > 0) {
+            $like->delete();
+        } else {
+            Like::create($data);
+        }
+        return NULL;
     }
   
 

@@ -37,6 +37,16 @@
                </div>
                <div>
                    <button class="btn" wire:click="selectReply({{$comment->id}})"><small><strong>Balas</strong></small></button>
+                   @if (isset($comment->hasLike))
+                   <button wire:click="like({{$comment->id}})" class="btn btn-sm btn-danger">
+                       <i class="bi bi-heart-fill me-2"></i>({{$comment->totalLikes()}})
+                   </button>
+                   @else
+                   <button wire:click="like({{$comment->id}})" class="btn btn-sm btn-dark">
+                       <i class="bi bi-heart-fill me-2"></i>({{$comment->totalLikes()}})
+                   </button>
+
+                   @endif
 
                </div>
                <div >
@@ -80,6 +90,16 @@
                 </div>
                 <div>
                     <button class="btn" wire:click="selectReply({{$item->id}})"><small><strong>Balas</strong></small></button>
+                    @if (isset($item->hasLike))
+                    <button wire:click="like({{$item->id}})" class="btn btn-sm btn-danger">
+                        <i class="bi bi-heart-fill me-2"></i>({{$item->totalLikes()}})
+                    </button>
+                    @else
+                    <button wire:click="like({{$item->id}})" class="btn btn-sm btn-dark">
+                        <i class="bi bi-heart-fill me-2"></i>({{$item->totalLikes()}})
+                    </button>
+
+                    @endif
                 </div>
                 <div>
                     @if (isset($comment_id) && $comment_id == $item->id)

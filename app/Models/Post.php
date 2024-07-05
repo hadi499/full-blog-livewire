@@ -25,6 +25,8 @@ class Post extends Model
         return $this->hasMany(Comment::class);
     }
 
+   
+
     // untuk sluggable
     public function sluggable(): array
     {

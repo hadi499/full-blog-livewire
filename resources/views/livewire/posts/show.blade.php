@@ -3,10 +3,10 @@
         <div class="card mb-3 shadow">
             @if ($post->image)
             <img src="{{ asset('storage/' . $post->image) }}" class="card-img-top" height="500" alt="...">
-            
+
             @else
             <img src="{{ asset('image/no-image.jpg') }}" class="card-img-top" height="500" alt="...">
-           
+
             @endif
 
             <div class="card-body">
@@ -18,24 +18,25 @@
                 <p class="card-text"><small class="text-body-secondary">
                         {{$post->created_at->diffForHumans()}}</small></p>
                 <div class="mb-3">
-                    
-                    {!! $post->body !!}
-                    
-                </div>
-                    <div class="d-flex gap-2">
-                        <a href="{{ route('posts.edit', ['slug' => $post->slug]) }}" class="btn btn-sm btn-primary">Edit</a>
-                        <livewire:posts.destroy :post="$post" />
-                        {{-- @livewire('destroy', ['post' => $post]) --}}
 
-                    </div>
+                    {!! $post->body !!}
+
+                </div>
+                <div class="d-flex gap-2">
+                    <a href="{{ route('posts.edit', ['slug' => $post->slug]) }}" class="btn btn-sm btn-primary">Edit</a>
+                    <livewire:posts.destroy :post="$post" />
+                    {{-- @livewire('destroy', ['post' => $post]) --}}
+                   
+
+                </div>
 
             </div>
-        
-               
+
+
         </div>
-        <div class="card shadow p-2">   
-            {{-- @livewire('comments.index', ['id', $post->id])        --}}
-            
+        <div class="card shadow p-2">
+            {{-- @livewire('comments.index', ['id', $post->id]) --}}
+
             <livewire:comments.index :post="$post">
         </div>
         <div class="mt-4 d-flex justify-content-end">
